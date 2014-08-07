@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://radlon.github.io/blog/2014/08/07/start-octopress/</loc>
+    <lastmod>2014-08-07T17:45:52+09:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://radlon.github.io/blog/2014/08/06/hello/</loc>
     <lastmod>2014-08-06T18:00:23+09:00</lastmod>
     <priority>0.8</priority>
@@ -11,14 +17,14 @@
   
   <url>
     <loc>http://radlon.github.io/blog/archives/</loc>
-    <lastmod>2014-08-06T18:35:08+09:00</lastmod>
+    <lastmod>2014-08-07T19:17:45+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://radlon.github.io/</loc>
-    <lastmod>2014-08-06T18:35:08+09:00</lastmod>
+    <lastmod>2014-08-07T19:17:45+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
