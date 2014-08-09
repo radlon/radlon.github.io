@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Octopress | らじうむぶろぐ]]></title>
+  <title><![CDATA[Category: Octopress | らじうむ覚書]]></title>
   <link href="http://radlon.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-09T19:43:09+09:00</updated>
+  <updated>2014-08-09T19:52:44+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
