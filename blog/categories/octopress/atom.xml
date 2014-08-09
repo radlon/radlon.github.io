@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | らじうむぶろぐ]]></title>
   <link href="http://radlon.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-07T19:17:45+09:00</updated>
+  <updated>2014-08-09T19:43:09+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressにイメージを]]></title>
+    <link href="http://radlon.github.io/blog/2014/08/09/image-in-octopress/"/>
+    <updated>2014-08-09T19:11:03+09:00</updated>
+    <id>http://radlon.github.io/blog/2014/08/09/image-in-octopress</id>
+    <content type="html"><![CDATA[<h1>ブログに画像を貼り付けたい</h1>
+
+<p>ブログに画像を貼り付けたいのです。</p>
+
+<p>何かしら説明をする上で、画像はなくてはならない要素です。
+見た目華やかになりますし、やっぱり画像は貼りたいですよね。</p>
+
+<h1>画像の置き場所</h1>
+
+<p>「source/images/」以下だと思われ。</p>
+
+<p>直下に置いてしまうと、各記事の画像がごちゃ混ぜになってよろしくないので、記事毎にフォルダを切りましょう。</p>
+
+<h1>Markdownの画像指定</h1>
+
+<p>Markdown記法での画像の指定方法は以下です。</p>
+
+<pre><code class="{.md}">![代替テキスト](画像のURL)
+</code></pre>
+
+<p>ここで指定する画像のURLはsourceからの相対パスで良いみたいです。</p>
+
+<h1>試してみる</h1>
+
+<p>とりあえず、一般的？な画像サイズ640×480の画像を貼ってみる。</p>
+
+<pre><code class="{.md}">![640×480](/images/2014_08_09/640_480.png)
+</code></pre>
+
+<p><img src="/images/2014_08_09/640_480.png" alt="640×480" /></p>
+
+<p>出来た！</p>
+
+<h1>大きい画像</h1>
+
+<p>大きい画像だとどうだろうか？</p>
+
+<p>とりあえず、さっきの画像の倍のサイズの画像を用意してみた。</p>
+
+<pre><code class="{.md}">![1280×960](/images/2014_08_09/1280_960.png)
+</code></pre>
+
+<p><img src="/images/2014_08_09/1280_960.png" alt="1280×960" /></p>
+
+<p>フレーム幅に縮小してくれるっぽい。</p>
+
+<p>（適用してるテーマに依ると思いますが）</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopressをはじめましょう]]></title>

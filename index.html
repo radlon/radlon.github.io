@@ -9,7 +9,8 @@
   <meta name="author" content="radlon">
 
   
-  <meta name="description" content="Octopressの環境構築で若干手間取ったので、記事作成の練習も兼ねて作業手順を纏めてみました。 ちなみにMacでの環境構築手順です。 Windowsの場合は若干手順の実行が面倒になる気はしますが、基本は同じだと思います。 事前準備 Octopress+ &hellip;">
+  <meta name="description" content="ブログに画像を貼り付けたい ブログに画像を貼り付けたいのです。 何かしら説明をする上で、画像はなくてはならない要素です。
+見た目華やかになりますし、やっぱり画像は貼りたいですよね。 画像の置き場所 「source/images/」以下だと思われ。 直下に置いてしまうと、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,88 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/09/image-in-octopress/">Octopressにイメージを</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-09T19:11:03+09:00" pubdate data-updated="true">Aug 9<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>ブログに画像を貼り付けたい</h1>
+
+<p>ブログに画像を貼り付けたいのです。</p>
+
+<p>何かしら説明をする上で、画像はなくてはならない要素です。
+見た目華やかになりますし、やっぱり画像は貼りたいですよね。</p>
+
+<h1>画像の置き場所</h1>
+
+<p>「source/images/」以下だと思われ。</p>
+
+<p>直下に置いてしまうと、各記事の画像がごちゃ混ぜになってよろしくないので、記事毎にフォルダを切りましょう。</p>
+
+<h1>Markdownの画像指定</h1>
+
+<p>Markdown記法での画像の指定方法は以下です。</p>
+
+<pre><code class="{.md}">![代替テキスト](画像のURL)
+</code></pre>
+
+<p>ここで指定する画像のURLはsourceからの相対パスで良いみたいです。</p>
+
+<h1>試してみる</h1>
+
+<p>とりあえず、一般的？な画像サイズ640×480の画像を貼ってみる。</p>
+
+<pre><code class="{.md}">![640×480](/images/2014_08_09/640_480.png)
+</code></pre>
+
+<p><img src="/images/2014_08_09/640_480.png" alt="640×480" /></p>
+
+<p>出来た！</p>
+
+<h1>大きい画像</h1>
+
+<p>大きい画像だとどうだろうか？</p>
+
+<p>とりあえず、さっきの画像の倍のサイズの画像を用意してみた。</p>
+
+<pre><code class="{.md}">![1280×960](/images/2014_08_09/1280_960.png)
+</code></pre>
+
+<p><img src="/images/2014_08_09/1280_960.png" alt="1280×960" /></p>
+
+<p>フレーム幅に縮小してくれるっぽい。</p>
+
+<p>（適用してるテーマに依ると思いますが）</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -321,6 +404,10 @@ $ bundle install
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/09/image-in-octopress/">Octopressにイメージを</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/08/07/start-octopress/">Octopressをはじめましょう</a>
