@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Krmalloc, | らじうむ覚書]]></title>
   <link href="http://radlon.github.io/blog/categories/krmalloc/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-25T08:30:54+09:00</updated>
+  <updated>2014-08-25T08:35:34+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Krmalloc]]></title>
+    <title type="html"><![CDATA[K&R Malloc解説]]></title>
     <link href="http://radlon.github.io/blog/2014/08/25/krmalloc/"/>
     <updated>2014-08-25T08:30:00+09:00</updated>
     <id>http://radlon.github.io/blog/2014/08/25/krmalloc</id>
