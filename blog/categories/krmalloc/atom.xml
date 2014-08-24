@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[らじうむ覚書]]></title>
-  <link href="http://radlon.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Krmalloc, | らじうむ覚書]]></title>
+  <link href="http://radlon.github.io/blog/categories/krmalloc/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
   <updated>2014-08-25T08:30:54+09:00</updated>
   <id>http://radlon.github.io/</id>
@@ -42,7 +42,7 @@ Javaなど低レベルの処理を記述しない言語しか使用していな�
 <p>krmallocではメモリをブロック単位で管理します。<br/>
 ブロックは以下の構造をしています。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/data_struct.png" alt="データ構造" /></p>
+<p><img src="/images/2014_08_25/data_struct.png" alt="データ構造" /></p>
 
 <ul>
 <li><p>ブロックヘッダ</p>
@@ -78,7 +78,7 @@ Javaなど低レベルの処理を記述しない言語しか使用していな�
 
 <p>現在未使用のブロックはptrによりリング状の一方向リストとします。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/example_list.png" alt="データ構造のリスト" /></p>
+<p><img src="/images/2014_08_25/example_list.png" alt="データ構造のリスト" /></p>
 
 <p>図のbaseはsizeが0のブロック本体を持たないブロックで、グローバル変数として定義します。</p>
 
@@ -101,7 +101,7 @@ Javaなど低レベルの処理を記述しない言語しか使用していな�
 
 <p>CPUとメモリは複数本のバスで繋がっています。メモリを読み込む場合このバスの本数分の範囲をパラレルに読み込みます。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/cpu_databus.png" alt="CPUバス" /></p>
+<p><img src="/images/2014_08_25/cpu_databus.png" alt="CPUバス" /></p>
 
 <p>CPUは上記の図のようにしてメモリを読み込みます。</p>
 
@@ -151,7 +151,7 @@ CPUの仕様に依存します。</p>
 
 <p>この最初に見つかった未使用ブロックを使用するを使用することを「first fit」と呼びます。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/malloc1.png" alt="malloc1" /></p>
+<p><img src="/images/2014_08_25/malloc1.png" alt="malloc1" /></p>
 
 <h3>未使用ブロックが見つからない場合</h3>
 
@@ -175,7 +175,7 @@ OSに要求してメモリを確保し、未使用ブロックを追加します
 
 <p>これにより、確保したメモリのブロックは未使用ブロックのリストへ組み込まれます。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/malloc2.png" alt="malloc2" /></p>
+<p><img src="/images/2014_08_25/malloc2.png" alt="malloc2" /></p>
 
 <p>そして、改めてmallocの処理を実行します。</p>
 
@@ -191,7 +191,7 @@ OSに要求してメモリを確保し、未使用ブロックを追加します
 
 <p>brk()はこのbrkの位置を変更する形でメモリを確保するシステムコールです。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/brk.png" alt="brk" /></p>
+<p><img src="/images/2014_08_25/brk.png" alt="brk" /></p>
 
 <p>ちなみに、他のヒープ領域を確保するシステムコールとしてmmap()があります。</p>
 
@@ -209,7 +209,7 @@ OSに要求してメモリを確保し、未使用ブロックを追加します
 <p>削り出したブロックへブロックヘッダを書き込み、
 使用した未使用ブロックのsizeのみ更新します。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/malloc3.png" alt="malloc3" /></p>
+<p><img src="/images/2014_08_25/malloc3.png" alt="malloc3" /></p>
 
 <p>そして、mallocの呼び出しもとへ削りだしたブロックのブロック本体のアドレスを返却します。</p>
 
@@ -222,7 +222,7 @@ OSに要求してメモリを確保し、未使用ブロックを追加します
 <p>前のブロックのヘッダーのptrをヒットしたブロックのptrへ書き換えることで、ヒットしたブロックを
 未使用ブロックのリストから外します。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/malloc4.png" alt="malloc4" /></p>
+<p><img src="/images/2014_08_25/malloc4.png" alt="malloc4" /></p>
 
 <p>そして、mallocの呼び出し元へ見つかったブロックのブロック本体のアドレスを返却します。</p>
 
@@ -250,7 +250,7 @@ freeで指定されたブロックのアドレスと比較することで、検�
 
 <p>これにより、対象ブロックを未使用ブロックのリストへ組み込みます。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/free1.png" alt="free1" /></p>
+<p><img src="/images/2014_08_25/free1.png" alt="free1" /></p>
 
 <h3>隣接する未使用ブロックがある場合</h3>
 
@@ -273,7 +273,7 @@ freeで指定されたブロックのアドレスと比較することで、検�
 </ul>
 
 
-<p><img src="http://radlon.github.io/images/2014_08_25/free2.png" alt="free2" /></p>
+<p><img src="/images/2014_08_25/free2.png" alt="free2" /></p>
 
 <h2>freepとはなんだったのか？</h2>
 
@@ -321,7 +321,7 @@ freeを行った場合は解放したブロックに移動します。</p>
 
 <p>これを「フラグメンテーション」と呼びます。</p>
 
-<p><img src="http://radlon.github.io/images/2014_08_25/fragment.png" alt="フラグメンテーション" /></p>
+<p><img src="/images/2014_08_25/fragment.png" alt="フラグメンテーション" /></p>
 
 <p>とはいえ、krmallocのアルゴリズムではbest fitとなるブロックを検索するというのは
 コストが掛かりすぎます。</p>
@@ -339,251 +339,6 @@ freeを行った場合は解放したブロックに移動します。</p>
 
 <p>普段はあまり意識しないかもしれませんが、アプリケーションの高速化または軽量化を行う場合は
 このあたりに立ち返って設計を行うと良いと思いますよ。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopressにイメージを]]></title>
-    <link href="http://radlon.github.io/blog/2014/08/09/image-in-octopress/"/>
-    <updated>2014-08-09T19:11:03+09:00</updated>
-    <id>http://radlon.github.io/blog/2014/08/09/image-in-octopress</id>
-    <content type="html"><![CDATA[<h1>ブログに画像を貼り付けたい</h1>
-
-<p>ブログに画像を貼り付けたいのです。</p>
-
-<p>何かしら説明をする上で、画像はなくてはならない要素です。
-見た目華やかになりますし、やっぱり画像は貼りたいですよね。</p>
-
-<h1>画像の置き場所</h1>
-
-<p>「source/images/」以下だと思われ。</p>
-
-<p>直下に置いてしまうと、各記事の画像がごちゃ混ぜになってよろしくないので、記事毎にフォルダを切りましょう。</p>
-
-<h1>Markdownの画像指定</h1>
-
-<p>Markdown記法での画像の指定方法は以下です。</p>
-
-<pre><code class="{.md}">![代替テキスト](画像のURL)
-</code></pre>
-
-<p>ここで指定する画像のURLはsourceからの相対パスで良いみたいです。</p>
-
-<h1>試してみる</h1>
-
-<p>とりあえず、一般的？な画像サイズ640×480の画像を貼ってみる。</p>
-
-<pre><code class="{.md}">![640×480](/images/2014_08_09/640_480.png)
-</code></pre>
-
-<p><img src="http://radlon.github.io/images/2014_08_09/640_480.png" alt="640×480" /></p>
-
-<p>出来た！</p>
-
-<h1>大きい画像</h1>
-
-<p>大きい画像だとどうだろうか？</p>
-
-<p>とりあえず、さっきの画像の倍のサイズの画像を用意してみた。</p>
-
-<pre><code class="{.md}">![1280×960](/images/2014_08_09/1280_960.png)
-</code></pre>
-
-<p><img src="http://radlon.github.io/images/2014_08_09/1280_960.png" alt="1280×960" /></p>
-
-<p>フレーム幅に縮小してくれるっぽい。</p>
-
-<p>（適用してるテーマに依ると思いますが）</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopressをはじめましょう]]></title>
-    <link href="http://radlon.github.io/blog/2014/08/07/start-octopress/"/>
-    <updated>2014-08-07T17:45:52+09:00</updated>
-    <id>http://radlon.github.io/blog/2014/08/07/start-octopress</id>
-    <content type="html"><![CDATA[<p>Octopressの環境構築で若干手間取ったので、記事作成の練習も兼ねて作業手順を纏めてみました。</p>
-
-<p>ちなみにMacでの環境構築手順です。</p>
-
-<p>Windowsの場合は若干手順の実行が面倒になる気はしますが、基本は同じだと思います。</p>
-
-<h1>事前準備</h1>
-
-<p>Octopress+gitHubPagesの環境を構築する上での事前準備です。</p>
-
-<h2>gitインストール</h2>
-
-<p>Macにはじめからインストールされてますね。バージョンが古いのでMacPortsで最新版をインストールした方が良いかもです。</p>
-
-<h2>Ruby1.9系インストール</h2>
-
-<p>MacPortsでインストールしましょう。</p>
-
-<h2>rbenvインストール</h2>
-
-<p>MacPortsでインストールしましょう。gitHubに最新版が公開されてるみたいですがインストールめどいですしね。</p>
-
-<h2>gitHubにSSH公開鍵登録</h2>
-
-<p>Octopressで生成したページをgitHubのリポジトリにPushする必要があるので、gitHubにSSH公開鍵を登録しましょう。</p>
-
-<ol>
-<li><p>SSH鍵を生成</p>
-
-<p> まず、sshの秘密鍵、公開鍵を格納している.sshフォルダに移動します。</p></li>
-</ol>
-
-
-<pre><code>$ cd ~/.ssh
-</code></pre>
-
-<p>   次にssh-keygenで秘密鍵、公開鍵を生成します。
-   以下のコマンドの「メールアドレス」には自分のメールアドレスとします。</p>
-
-<pre><code>$ ssh-keygen -t rsa -C "メールアドレス"
-</code></pre>
-
-<p>   上記のコマンドを入れると次を聞かれるのでそれぞれ入力します。</p>
-
-<ul>
-<li><p> 生成するファイル名</p>
-
-<p>   以下のファイル名で生成されます。</p>
-
-<ul>
-<li><p> 秘密鍵のファイル：(入力したファイル名)</p></li>
-<li><p> 公開鍵のファイル：(入力したファイル名).pub</p></li>
-</ul>
-</li>
-<li><p> パスフレーズ</p></li>
-<li><p> パスフレーズ（確認）</p>
-
-<p>生成した秘密鍵をMacさんに登録します。</p></li>
-</ul>
-
-
-<pre><code>$ ssh-add 秘密鍵のファイル
-</code></pre>
-
-<ol>
-<li><p>gitHubに生成した公開鍵を登録</p>
-
-<p> gitHubの自分のページから</p>
-
-<p> Acount settings > SSH keys > Add SSH key</p>
-
-<p> で、公開鍵登録用の画面をだします。</p>
-
-<p> 画面上の「Title」に適当な名前を入力します。</p>
-
-<p> 画面上の「key」に生成した公開鍵のファイルの内容をコピーします。(コピーするのは公開鍵の内容の全コピーです。)</p>
-
-<p> Add keyで登録完了です。</p></li>
-</ol>
-
-
-<h1>Octopress環境構築</h1>
-
-<p>正直<a href="http://octopress.org/docs/setup/">ここ</a>の通りですが</p>
-
-<h2>Octopressをダウンロード</h2>
-
-<pre><code>$ git clone git://github.com/imathis/octopress.git octopress
-$ cd octopress
-</code></pre>
-
-<h2>bundleインストール</h2>
-
-<pre><code>$ sudo gem install bundler
-$ rbenv rehash
-$ bundle install
-</code></pre>
-
-<p>bundlerを既に導入済みの場合はbundle installだけで良さそうです。</p>
-
-<p>重複してgem install掛けても問題ないと思いますが。</p>
-
-<h2>Octopressデフォルトテーマのインストール</h2>
-
-<pre><code>$ rake install
-</code></pre>
-
-<p>たぶんここでインストールするときにオプション付けたりすることでカスタムテーマをインストールできるのだと思う。</p>
-
-<p>まだやってないからわかんないけど。</p>
-
-<h2>公開用のgitHubリポジトリ作成</h2>
-
-<p>ブログを公開するのに使用するgitHubリポジトリを作成する。</p>
-
-<p>あとで、rake deployしたときこのリポジトリにpushされる。</p>
-
-<p>リポジトリ名は「(ユーザ名).github.io」にすると良いらしい。</p>
-
-<p>このブログの場合は「radlon.github.io」にしました。</p>
-
-<p>作成するときに「Initialize this repository with a README」のチェックボックスはオフのままとすると良いです。</p>
-
-<p>このチェックボックスをオンにして作成してしまうとあとでrake deployしようとしたときにPushに失敗します。</p>
-
-<p>(フォースでPushするように設定を変更すればrake deploy出来るようになるらしいですが、面倒ですし)</p>
-
-<h2>公開先のリポジトリ設定</h2>
-
-<pre><code>$ rake setup_github_pages
-</code></pre>
-
-<p>上記のコマンドを実行すると、公開先のリポジトリのURLを聞かれます。</p>
-
-<p>さっき作った公開用のgitHubリポジトリのページにあるSSH clone URLを貼り付けてやりましょう。</p>
-
-<p>(「git@github.com:radlon/radlon.github.io.git」みたいなやつです。)</p>
-
-<h2>公開</h2>
-
-<p>まず、次のコマンドでページを生成します。</p>
-
-<pre><code>$ rake generate
-</code></pre>
-
-<p>どんな感じにページが生成されたか確認するには次のコマンドを使いましょう。</p>
-
-<pre><code>$ rake preview
-</code></pre>
-
-<p><a href="localhost:4000">localhost:4000</a>で確認できます。</p>
-
-<p>良さそうなら次のコマンドで公開先のリポジトリへデプロイします。</p>
-
-<pre><code>$ rake deploy
-</code></pre>
-
-<p>これで「(ユーザ名).github.com」に公開されます。</p>
-
-<p>ただし、すぐにアクセスしに行ってもgitHubのエラーページが表示されちゃいます。</p>
-
-<p>エラーページにあるように10分くらい待つと公開されるようです。</p>
-
-<h2>記事作成</h2>
-
-<p>まず、記事のファイルを生成します。</p>
-
-<pre><code>$ rake new_post['(タイトル)']
-</code></pre>
-
-<p>「source/_posts/」以下に.markdownファイルが生成されるので、このファイルにMarkdown形式で記事を書きます。</p>
-
-<p>書き終わったら、上記のrake generate以降を行ってデプロイする感じです。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello, Octopress!]]></title>
-    <link href="http://radlon.github.io/blog/2014/08/06/hello/"/>
-    <updated>2014-08-06T18:00:23+09:00</updated>
-    <id>http://radlon.github.io/blog/2014/08/06/hello</id>
-    <content type="html"><![CDATA[<p>octopressで記事を投稿してみるテストです。</p>
 ]]></content>
   </entry>
   
