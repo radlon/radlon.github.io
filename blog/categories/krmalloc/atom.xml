@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Krmalloc, | らじうむ覚書]]></title>
   <link href="http://radlon.github.io/blog/categories/krmalloc/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-25T08:35:34+09:00</updated>
+  <updated>2014-08-25T22:55:09+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[K&R Malloc解説]]></title>
     <link href="http://radlon.github.io/blog/2014/08/25/krmalloc/"/>
-    <updated>2014-08-25T08:30:00+09:00</updated>
+    <updated>2014-08-25T23:00:00+09:00</updated>
     <id>http://radlon.github.io/blog/2014/08/25/krmalloc</id>
     <content type="html"><![CDATA[<p>なにか、無闇に時間掛かってしまった･･･</p>
 
@@ -156,9 +156,9 @@ CPUの仕様に依存します。</p>
 <h3>未使用ブロックが見つからない場合</h3>
 
 <p>条件に合うsizeの未使用ブロックが見つからなかった場合、
-OSに要求してメモリを確保し、未使用ブロックを追加します。</p>
+ヒープ領域から新たにmallocが管理するメモリを追加します。</p>
 
-<p>要求するメモリサイズは</p>
+<p>追加するメモリサイズは</p>
 
 <p>(mallocが返却するブロックのsize) * (ブロックヘッダのサイズ)</p>
 
@@ -166,8 +166,9 @@ OSに要求してメモリを確保し、未使用ブロックを追加します
 
 <p>ただし、sizeが要求最小size(K&amp;Rでは1024)未満の場合は、この最小sizeを追加します。</p>
 
-<p>これは、OSがメモリを確保する処理というのは思っている以上にコストがかかるためです。
-細かいサイズを連続して確保するのは効率が良くありません。
+<p>メモリを確保するには、カーネルへヒープ領域から新たにメモリを確保するように要求します。
+この処理にはそれなりのコストがかかります。<br/>
+細かいサイズを連続して確保するのは効率が良くありません。<br/>
 なのでmallocで要求されたサイズが小さかったとしても、
 ある程度のサイズのメモリを確保するようにします。</p>
 
@@ -178,26 +179,6 @@ OSに要求してメモリを確保し、未使用ブロックを追加します
 <p><img src="/images/2014_08_25/malloc2.png" alt="malloc2" /></p>
 
 <p>そして、改めてmallocの処理を実行します。</p>
-
-<h4>ヒープ領域確保のシステムコール</h4>
-
-<p>OSからメモリを確保する場合、システムコールを使用します。</p>
-
-<p>K&amp;Rではsbrk()でOSへメモリ確保を要求しています。</p>
-
-<p>sbrk()はbrk()をラップした処理です。</p>
-
-<p>brk()で管理するヒープ領域はbrk_startからbrkまでの連続したメモリ領域です。</p>
-
-<p>brk()はこのbrkの位置を変更する形でメモリを確保するシステムコールです。</p>
-
-<p><img src="/images/2014_08_25/brk.png" alt="brk" /></p>
-
-<p>ちなみに、他のヒープ領域を確保するシステムコールとしてmmap()があります。</p>
-
-<p>こちらはデータセグメントの空いている領域から要求したサイズのメモリを確保します。</p>
-
-<p>brkの位置に隣接したメモリ領域がmmap()で確保されていた場合、brk()によるヒープ領域の拡張は失敗します。</p>
 
 <h3>十分に空いたブロックがある場合</h3>
 
