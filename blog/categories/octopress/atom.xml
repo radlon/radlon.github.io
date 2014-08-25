@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | らじうむ覚書]]></title>
   <link href="http://radlon.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-25T22:55:09+09:00</updated>
+  <updated>2014-08-25T23:06:24+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -136,6 +136,24 @@
 
 <pre><code>$ ssh-add 秘密鍵のファイル
 </code></pre>
+
+<hr />
+
+<p>(2014/08/25 追記)</p>
+
+<p>上記だけではOSを再起動するとSSH Agentさんがssh-addした秘密鍵を忘れちゃうので、
+~/.ssh/configに以下を書いておく必要があった。</p>
+
+<pre><code>Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    IdentityFile 秘密鍵のファイルへのパス
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+</code></pre>
+
+<hr />
 
 <ol>
 <li><p>gitHubに生成した公開鍵を登録</p>

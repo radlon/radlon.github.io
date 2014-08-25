@@ -577,6 +577,24 @@ freeを行った場合は解放したブロックに移動します。</p>
 <pre><code>$ ssh-add 秘密鍵のファイル
 </code></pre>
 
+<hr />
+
+<p>(2014/08/25 追記)</p>
+
+<p>上記だけではOSを再起動するとSSH Agentさんがssh-addした秘密鍵を忘れちゃうので、
+~/.ssh/configに以下を書いておく必要があった。</p>
+
+<pre><code>Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    IdentityFile 秘密鍵のファイルへのパス
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+</code></pre>
+
+<hr />
+
 <ol>
 <li><p>gitHubに生成した公開鍵を登録</p>
 
