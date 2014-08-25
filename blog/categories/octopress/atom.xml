@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | らじうむ覚書]]></title>
   <link href="http://radlon.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-25T23:06:24+09:00</updated>
+  <updated>2014-08-25T23:16:16+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<h1>ブログに画像を貼り付けたい</h1>
 
 <p>ブログに画像を貼り付けたいのです。</p>
+
+<!-- more -->
+
 
 <p>何かしら説明をする上で、画像はなくてはならない要素です。
 見た目華やかになりますし、やっぱり画像は貼りたいですよね。</p>
@@ -74,6 +77,9 @@
     <updated>2014-08-07T17:45:52+09:00</updated>
     <id>http://radlon.github.io/blog/2014/08/07/start-octopress</id>
     <content type="html"><![CDATA[<p>Octopressの環境構築で若干手間取ったので、記事作成の練習も兼ねて作業手順を纏めてみました。</p>
+
+<!-- more -->
+
 
 <p>ちなみにMacでの環境構築手順です。</p>
 

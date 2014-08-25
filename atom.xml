@@ -4,7 +4,7 @@
   <title><![CDATA[らじうむ覚書]]></title>
   <link href="http://radlon.github.io/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-25T23:06:24+09:00</updated>
+  <updated>2014-08-25T23:16:16+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -23,6 +23,9 @@
 <p>後で見直して直すと思います。</p>
 
 <p>数あるmallocアルゴリズムの基本であるK&amp;Rのmallocアルゴリズムを解説いたします。</p>
+
+<!-- more -->
+
 
 <p>K&amp;Rとは初期のC言語を解説した書籍「プログラミング言語C」(原題:The Programing Language)のことです。</p>
 
@@ -332,6 +335,9 @@ freeを行った場合は解放したブロックに移動します。</p>
 
 <p>ブログに画像を貼り付けたいのです。</p>
 
+<!-- more -->
+
+
 <p>何かしら説明をする上で、画像はなくてはならない要素です。
 見た目華やかになりますし、やっぱり画像は貼りたいですよね。</p>
 
@@ -384,6 +390,9 @@ freeを行った場合は解放したブロックに移動します。</p>
     <updated>2014-08-07T17:45:52+09:00</updated>
     <id>http://radlon.github.io/blog/2014/08/07/start-octopress</id>
     <content type="html"><![CDATA[<p>Octopressの環境構築で若干手間取ったので、記事作成の練習も兼ねて作業手順を纏めてみました。</p>
+
+<!-- more -->
+
 
 <p>ちなみにMacでの環境構築手順です。</p>
 
