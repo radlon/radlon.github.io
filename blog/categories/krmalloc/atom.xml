@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Krmalloc, | らじうむ覚書]]></title>
+  <title><![CDATA[Category: Krmalloc | らじうむ覚書]]></title>
   <link href="http://radlon.github.io/blog/categories/krmalloc/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-31T17:34:00+09:00</updated>
+  <updated>2014-08-31T17:37:44+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
