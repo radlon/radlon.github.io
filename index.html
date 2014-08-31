@@ -9,7 +9,8 @@
   <meta name="author" content="radlon">
 
   
-  <meta name="description" content="なにか、無闇に時間掛かってしまった･･･ 後で見直して直すと思います。 数あるmallocアルゴリズムの基本であるK&amp;Rのmallocアルゴリズムを解説いたします。 ">
+  <meta name="description" content="K&amp;Rのmallocでカーネルへメモリ確保を要求するのに使用しているsbrk()について、
+Linuxではどのように実装されているか読んでみました。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/31/sbrk/">Sbrk()を読む</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-31T16:57:23+09:00" pubdate data-updated="true">Aug 31<sup>st</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>K&amp;Rのmallocでカーネルへメモリ確保を要求するのに使用しているsbrk()について、
+Linuxではどのように実装されているか読んでみました。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/08/31/sbrk/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -242,6 +285,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/31/sbrk/">Sbrk()を読む</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/08/25/krmalloc/">K&R Malloc解説</a>

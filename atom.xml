@@ -4,7 +4,7 @@
   <title><![CDATA[らじうむ覚書]]></title>
   <link href="http://radlon.github.io/atom.xml" rel="self"/>
   <link href="http://radlon.github.io/"/>
-  <updated>2014-08-25T23:16:16+09:00</updated>
+  <updated>2014-08-31T17:34:00+09:00</updated>
   <id>http://radlon.github.io/</id>
   <author>
     <name><![CDATA[radlon]]></name>
@@ -12,6 +12,80 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sbrk()を読む]]></title>
+    <link href="http://radlon.github.io/blog/2014/08/31/sbrk/"/>
+    <updated>2014-08-31T16:57:23+09:00</updated>
+    <id>http://radlon.github.io/blog/2014/08/31/sbrk</id>
+    <content type="html"><![CDATA[<p>K&amp;Rのmallocでカーネルへメモリ確保を要求するのに使用しているsbrk()について、
+Linuxではどのように実装されているか読んでみました。</p>
+
+<!-- more -->
+
+
+<h1>sbrk()</h1>
+
+<p>どうやらsbrk()は外部のライブラリが実装しているようです。</p>
+
+<p>そこで、glibcのsbrk()を読んでみたところ、sbrk()は完全にbrk()のラッパー関数として実装されていました。<br/>
+sbrk()で追加するサイズ分、brk()によりbrkの位置を移動します。<br/>
+（ちなみに、brk()とはbrkの位置を変更するシステムコールです。念のため)</p>
+
+<p>リニアアドレス上のメモリは以下の図のように使用されます。</p>
+
+<p><img src="http://radlon.github.io/images/2014_08_31/linear_address_space.png" alt="リニアアドレス空間" /></p>
+
+<p>start_brkからbrkまでの間がbrk()およびsbrk()で管理されるメモリです。<br/>
+brk()によりbrkの位置を変更することで、メモリの領域を追加、削減するわけです。</p>
+
+<p>brkの位置は基本的にはカーネル側で管理されていますが、glibcではbrkの位置をライブラリ側でも__curbrkに保存していました。
+システムコールでわざわざbrkの位置を問い合わせるコストを削減するためですかね？</p>
+
+<h1>brk()</h1>
+
+<p>続けてbrk()の実装を読んでみました。</p>
+
+<p>まず、カレントプロセスのthread_info構造体のtask_struct構造体の持つmm_struct構造体を取得します。</p>
+
+<p>mm_struct構造体はプロセスアドレス空間に関する情報を持っています。</p>
+
+<p>mm_struct構造体は以下のようなメンバをもっています。
+なんとなく名前から用途は想像がつくと思います。</p>
+
+<ul>
+<li>start_code</li>
+<li>end_code</li>
+<li>start_data</li>
+<li>end_data</li>
+<li>start_brk</li>
+<li>brk</li>
+<li>など(vm_area_struct構造体とかも持ってますよ)</li>
+</ul>
+
+
+<p>brk()ではstart_brkからbrkまでを使用中のメモリとして扱います。</p>
+
+<p>brkをbrk()で渡したアドレスに変更します。</p>
+
+<p>ただし、リニアアドレスの使用状況はmm_struct構造体の持つvm_area_struct構造体でも管理しています。</p>
+
+<p>vm_area_struct構造体ではページ単位でリニアアドレスの使用区間を管理しているようです。<br/>
+そのため、変更後のbrkの位置と変更前のbrkの位置が別々のページになる場合、vm_area_struct構造体の更新も行います。</p>
+
+<p>vm_area_struct構造体は双方向リストとして構成されており、vm_startからvm_endまでを区間としています。</p>
+
+<p>また、必要なら(mlockall()でmm->def_flagにVM_LOCKEDフラグを立てていれば)追加したアドレスに対してmlock()と同等の処理を行い追加したメモリがページアウトされることを防ぐようにします。</p>
+
+<p>細部は飛ばしましたが、こんな感じのようです。</p>
+
+<p>基本的にmmap()でもだいたい同じような感じの処理をしているっぽいです。<br/>
+(brk()の内部処理はmmapの処理のサブセット的な処理のようです。)</p>
+
+<p>やっぱり、メモリ確保だけでもカーネル側で結構いろいろ処理してますね。<br/>
+アプリケーションを組む上では、割と誤差の範囲レベルの処理コストとはいえ、高速化を図るならカーネルにメモリをこまめに要求するようなロジックはよろしくないのがよくわかります。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[K&R Malloc解説]]></title>
