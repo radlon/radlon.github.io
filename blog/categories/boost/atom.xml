@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Boost | らじうむ覚書]]></title>
+  <link href="http://radlon.github.io/blog/categories/boost/atom.xml" rel="self"/>
+  <link href="http://radlon.github.io/"/>
+  <updated>2015-11-16T21:30:49+09:00</updated>
+  <id>http://radlon.github.io/</id>
+  <author>
+    <name><![CDATA[radlon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Boost.BuildでBoost.Testを]]></title>
+    <link href="http://radlon.github.io/blog/2015/11/16/boost-dot-build-test/"/>
+    <updated>2015-11-16T21:14:29+09:00</updated>
+    <id>http://radlon.github.io/blog/2015/11/16/boost-dot-build-test</id>
+    <content type="html"><![CDATA[<p>Boost Buildで外部ライブラリを使うのにかなり手間取ったのでメモ。</p>
+
+<p>test.cpp:</p>
+
+<pre><code class=".cpp">#define BOOST_TEST_MAIN
+#define BOOST_TEST_DYN_LINK
+#include &lt;boost/test/unit_test.hpp&gt;
+BOOST_AUTO_TEST_SUITE(sample)
+
+BOOST_AUTO_TEST_CASE(hoge)
+{
+        BOOST_CHECK_EQUAL(2*2, 4);
+}
+
+BOOST_AUTO_TEST_CASE(fuga)
+{
+        BOOST_CHECK_EQUAL(2*3, 6);
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+</code></pre>
+
+<p>jamroot.jam:</p>
+
+<pre><code class=".jam">import testing ;
+import os ;
+local BOOST_ROOT = [ os.environ BOOST_ROOT ] ;
+lib boost_unit_test_framework : : &lt;name&gt;boost_unit_test_framework &lt;search&gt;$(BOOST_ROOT)/lib ;
+run test.cpp
+boost_unit_test_framework
+:
+:
+:
+&lt;include&gt;$(BOOST_ROOT)/include ;
+</code></pre>
+
+<p>上記jamファイルの「:」だけの行は省略ではない。
+どうやら「:」区切りで一つ目がソースみたいな感じのフォーマットらしい。
+他の方の記事読んだとき、そこを勘違いしてえらい時間無駄にしてしまった…</p>
+
+<p>ライブラリは上記のようにlibで指定。includeパスはrunの第４要素で指定。
+環境変数はos.environで取得する。</p>
+
+<p>あと、MacでBoost.Testを使う場合は「BOOST_TEST_DYN_LINK」の定義は必須。
+MacのBoost.Testはstaticリンクをサポートしていないらしい。</p>
+
+<p><a href="http://www.boost.org/build/doc/html/index.html">Boost.Build User Manual</a></p>
+
+<p><a href="http://www.boost.org/doc/libs/1_52_0/libs/test/doc/html/index.html">Boost.Test Document</a></p>
+
+<hr />
+
+<p>すげえ久しぶりに記事書いたらローカルのoctopress動かなくて焦った…</p>
+]]></content>
+  </entry>
+  
+</feed>

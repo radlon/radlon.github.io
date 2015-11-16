@@ -1,51 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  
+  <url>
+    <loc>http://radlon.github.io/blog/2015/11/16/boost-dot-build-test/</loc>
+    <lastmod>2015-11-16T21:14:29+09:00</lastmod>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>http://radlon.github.io/blog/2014/08/31/sbrk/</loc>
     <lastmod>2014-08-31T16:57:23+09:00</lastmod>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://radlon.github.io/blog/2014/08/25/krmalloc/</loc>
     <lastmod>2014-08-25T23:00:00+09:00</lastmod>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://radlon.github.io/blog/2014/08/09/image-in-octopress/</loc>
     <lastmod>2014-08-09T19:11:03+09:00</lastmod>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://radlon.github.io/blog/2014/08/07/start-octopress/</loc>
     <lastmod>2014-08-07T17:45:52+09:00</lastmod>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://radlon.github.io/blog/2014/08/06/hello/</loc>
     <lastmod>2014-08-06T18:00:23+09:00</lastmod>
     <priority>0.8</priority>
   </url>
-  
-  
   <url>
     <loc>http://radlon.github.io/blog/archives/</loc>
-    <lastmod>2014-09-15T23:49:05+09:00</lastmod>
+    <lastmod>2015-11-16T21:30:49+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>http://radlon.github.io/</loc>
-    <lastmod>2014-09-15T23:49:05+09:00</lastmod>
+    <lastmod>2015-11-16T21:30:49+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  
 </urlset>
